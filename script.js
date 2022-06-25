@@ -21,5 +21,5 @@ window.addEventListener("load", function() {
         let missionTarget = document.getElementById("missionTarget");
         addDestinationInfo(missionTarget, planetPicked.name, planetPicked.diameter, planetPicked.star, planetPicked.distance, planetPicked.moons, planetPicked.image);
    })
-   
 });
+
