@@ -16,7 +16,6 @@ window.addEventListener("load", function() {
     listedPlanetsResponse.then(function (json) {
         listedPlanets = json;
     }).then(function () {
-        console.log(listedPlanets);
         let planetPicked = pickPlanet(listedPlanets);
         let missionTarget = document.getElementById("missionTarget");
         addDestinationInfo(missionTarget, planetPicked.name, planetPicked.diameter, planetPicked.star, planetPicked.distance, planetPicked.moons, planetPicked.image);
