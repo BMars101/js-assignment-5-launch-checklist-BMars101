@@ -28,14 +28,18 @@ function validateInput(testInput) {
 }
 
 function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
-    if(validateInput(pilot) === "Empty" || validateInput(copilot) === "Empty" || validateInput(fuelLevel) === "Empty" || validateInput(cargoLevel) === "Empty"){
-        alert("All fields required")
-     } 
+    
     let pilotStatus = document.getElementById("pilotStatus");
     let copilotStatus = document.getElementById("copilotStatus");
     let cargoStatus = document.getElementById("cargoStatus");
     let launchStatus = document.getElementById("launchStatus");
     let fuelStatus = document.getElementById("fuelStatus");
+    if(validateInput(pilot) === "Empty" || validateInput(copilot) === "Empty" || validateInput(fuelLevel) === "Empty" || validateInput(cargoLevel) === "Empty"){
+        alert("All fields required");
+        list.style.visibility = "visible";
+        launchStatus.innerHTML = "Shuttle not ready for launch";
+        launchStatus.style.color = "red";
+     } 
     if(validateInput(pilot) === "Not a Number"){
         pilotStatus.innerHTML = ` Pilot ${pilot.value} is ready for launch`
     } else if(validateInput(pilot) === "Is a Number"){
@@ -69,7 +73,7 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
     }else if(validateInput(cargoLevel) === "Not a Number"){
         alert("Cargo Level should be a number");
     }
-    if(validateInput(pilot) === "Not a Number" && validateInput(copilot) === "Not a Number" && fuelLevel.value >= 10000 && cargoLevel.value <= 10000){
+    if(validateInput(pilot) === "Not a Number" && validateInput(copilot) === "Not a Number" && fuelLevel.value >= 10000 && cargoLevel.value <= 10000 && cargoLevel.value > 0){
         list.style.visibility = "visible";
         launchStatus.innerHTML = "Shuttle ready for launch";
         launchStatus.style.color = "green";
